@@ -51,7 +51,8 @@ function getWeather(latitude, longitude) {
             let data = response.json();
             return data;
         }
-    ) //converting the response to json
+    ) 
+    //converting the response to json
         .then(function (data) {
             weather.temperature.value = Math.floor(data.main.temp - KELVIN);
             weather.description = data.weather[0].description;
@@ -75,12 +76,13 @@ function displayWeather(){
     locationElement.innerHTML = `${weather.city},${weather.country}`;
     //we will use this multiple times so put this in a fun
 }
+
 // C to F conversion on click
 function celsiusToFahrenheit(temperature) {
     return (temperature * 9/5) + 32;
 }
-// when the user clicks on the temperature element
 
+// when the user clicks on the temperature element
 tempElement.addEventListener("click", function() { 
     
     if (weather.temperature.value === undefined) return;
